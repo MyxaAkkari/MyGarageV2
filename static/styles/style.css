@@ -1,0 +1,49 @@
+#errorMessage {
+    color: red;
+}
+body {
+    background-image: url('../assets/carGarageOne.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(228, 228, 228);
+}
+input{
+    background-color: #cdcdcd;
+}
+button {
+    color: black;
+    padding: 3px 15px; /* Adjust padding for a larger button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size */
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #45a049; 
+}
+button#myRemoveAllButton:hover {
+    background-color: #ff0000; 
+}
+#main-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+@media (max-width: 600px) {
+    body{
+        background-image: url('../assets/carGarageMobile.jpg');
+    }
+    input {
+        width: 100%;
+        box-sizing: border-box; 
+        margin: 5px 0; 
+    }
+}

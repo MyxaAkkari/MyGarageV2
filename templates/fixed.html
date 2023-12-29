@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Garage - Fixed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<body>
+
+
+<div id="main-content">
+    <h1>My Garage</h1>
+
+
+    <h2>Cars list</h2>
+    <div id="counter">Total Cars: {{ cars|length }}</div><br>
+    <a href="{{ url_for('home') }}"><button>Cars - In progress</button></a>
+    <div id="display">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Owner's Name</th>
+                    <th>Phone Number</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Model Year</th>
+                    <th>Color</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td>{{ car[0] }}</td>
+                    <td>{{ car[1] }}</td>
+                    <td>{{ car[2] }}</td>
+                    <td>{{ car[3] }}</td>
+                    <td>{{ car[4] }}</td>
+                    <td>{{ car[5] }}</td>
+                    <td>{{ car[6] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+</body>
+
+</html>
