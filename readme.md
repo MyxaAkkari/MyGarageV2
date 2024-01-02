@@ -1,27 +1,53 @@
-# My Garage App
+# My Garage
 
-My Garage is a simple Flask web application that allows users to manage a list of cars. Users can add new cars, mark them as fixed, delete cars, and edit car details.
+"My Garage" is a simple web application built with Flask, allowing users to manage and track their cars. The application provides features such as adding new cars, deleting cars, fixing and displaying fixed cars. Users can register, log in, and upload a profile photo to personalize their experience.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Dependencies](#dependencies)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
-- **Add Cars:** Users can add new cars to the garage by providing owner details, brand, model, model year, and color.
+"My Garage" offers a range of features to help you manage and organize your vehicle collection:
 
-- **List Cars:** The home page displays a list of all cars in the garage, including their details.
+### 1. **Add Cars**
+   - Keep a record of your vehicles by easily adding new cars to your garage.
+   - Input details such as owner name, phone number, brand, model, model year, and color.
 
-- **Delete Cars:** Users can delete a car from the garage, which moves the car to the "Fixed Cars" section.
+### 2. **Delete Cars**
+   - Remove cars that are no longer part of your collection.
+   - Enhance decluttering by deleting entries from your garage.
 
-- **Fix Cars:** Deleted cars are moved to the "Fixed Cars" section for reference.
+### 3. **Fixed Cars**
+   - View and manage a list of cars that have been fixed or undergone maintenance.
+   - Track the history of cars that have completed maintenance tasks.
 
-- **Edit Cars:** Users can edit the details of a car.
+### 4. **User Authentication**
+   - Register a new account to personalize your experience.
+   - Log in securely to access and manage your garage.
+   - Upload a profile photo to add a personal touch to your account.
+
+### 5. **User-Friendly Interface**
+   - Enjoy a clean and intuitive user interface for a seamless user experience.
+   - Easily navigate through different sections of the application.
+
+### 6. **Responsive Design**
+   - Access "My Garage" from various devices with a responsive design.
+   - Experience consistent usability on both desktop and mobile devices.
+
+### 7. **Secure Password Storage**
+   - Passwords are securely hashed using Flask-Bcrypt to ensure user data safety.
+
+### 8. **Profile Customization**
+   - Personalize your user profile by uploading a profile photo.
+   - Display your profile information while navigating through the application.
+
+### 9. **Convenient Car Editing**
+   - Easily edit car details, including owner name, phone number, brand, model, model year, and color.
 
 ## Installation
 
@@ -42,13 +68,10 @@ My Garage is a simple Flask web application that allows users to manage a list o
 ## Usage
 
 1. Access the application by visiting [http://localhost:8000/](http://localhost:8000/) in your web browser.
-2. Add new cars using the input form on the home page.
-3. Delete, fix, or edit existing cars using the respective buttons.
+2. Register a new account or log in if you already have one, you can use usr: admin, pwd: password.
+3. Add new cars to your garage, providing details such as owner name, phone number, brand, model, model year, and color.
+4. Explore features like deleting cars, viewing fixed cars, and editing car details.
 
-## Dependencies
-
-- Flask
-- SQLite3
 
 ## Contributing
 
@@ -60,7 +83,4 @@ Contributions are welcome! If you find a bug or have a feature request, please o
 4. Push to the branch: `git push origin feature-name`
 5. Open a pull request.
 
-
-
-```sql
-Feel free to adjust any details or add specific information related to your project.
+Enjoy managing your car collection with "My Garage"!

@@ -3,6 +3,7 @@ import sqlite3
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from werkzeug.utils import secure_filename
 from flask_bcrypt import Bcrypt
+from secrets import token_hex
 
 # Connect to SQLite database
 con = sqlite3.connect('garage.db', check_same_thread=False)
@@ -10,7 +11,8 @@ cur = con.cursor()
 
 # Create Flask app
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Replace with a secure secret key
+secret_key = token_hex(32)
+app.secret_key = secret_key  
 
 # Initialize Flask-Bcrypt
 bcrypt = Bcrypt(app)
@@ -33,23 +35,29 @@ def allowed_file(filename):
 # Define route for the home page
 @app.route('/')
 def home():
+    # Check if user is not logged in
     if 'user_id' not in session:
-        return redirect(url_for('login'))
+        return redirect(url_for('login'))  # Redirect to the login page if not logged in
 
+    # Retrieve username and profile photo from the 'Users' table based on user_id
     cur.execute("SELECT username, profile_photo FROM Users WHERE id=?", (session['user_id'],))
     user_data = cur.fetchone()
 
     if user_data:
         user_name, user_profile_photo = user_data
         if user_profile_photo is None:
-            user_profile_photo = 'default.png'  # Set to your default photo filename
+            user_profile_photo = 'default.png'  # Set to your default photo filename if no profile photo
+
+        # Retrieve all cars from the 'Cars' table
         cur.execute("SELECT rowid,* FROM Cars")
         cars = cur.fetchall()
 
+        # Render the home page template with the list of cars, user's name, and user's profile photo
         return render_template('index.html', cars=cars, user_name=user_name, user_profile_photo=user_profile_photo)
     else:
         flash('User not found. Please log in again.', 'danger')
-        return redirect(url_for('login'))
+        return redirect(url_for('login'))  # Redirect to the login page if user not found
+
 
 # Define route for adding a new car
 @app.route('/add', methods=['POST'])
