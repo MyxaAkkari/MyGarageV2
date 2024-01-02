@@ -10,45 +10,65 @@
 
 <body>
 
+    <nav>
+        <ul class="menu">
+            {% if user_name %}
+                <li class="profile-link">
+                    <div class="user-profile">
+                        {% if user_profile_photo %}
+                            <img class="rounded-profile" width="30px" height="30px" src="{{ url_for('static', filename='uploads/' + user_profile_photo) }}" alt="Profile Photo">
+                        {% else %}
+                            <img class="rounded-profile" width="30px" height="30px" src="{{ url_for('static', filename='uploads/default.jpg') }}" alt="Default Photo">
+                        {% endif %}
+                        <span>{{ user_name }}</span>
+                    </div>
+                </li>
+            {% endif %}
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('fixed') }}">Fixed</a></li>
+            <li class="logout-link"><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
 
-<div id="main-content">
-    <h1>My Garage</h1>
+    <div id="main-content">
+        <h1>My Garage</h1>
 
 
-    <h2>Cars list</h2>
-    <div id="counter">Total Cars: {{ cars|length }}</div><br>
-    <a href="{{ url_for('home') }}"><button>Cars - In progress</button></a>
-    <div id="display">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Owner's Name</th>
-                    <th>Phone Number</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Model Year</th>
-                    <th>Color</th> 
-                </tr>
-            </thead>
-            <tbody>
-                {% for car in cars %}
-                <tr>
-                    <td>{{ car[0] }}</td>
-                    <td>{{ car[1] }}</td>
-                    <td>{{ car[2] }}</td>
-                    <td>{{ car[3] }}</td>
-                    <td>{{ car[4] }}</td>
-                    <td>{{ car[5] }}</td>
-                    <td>{{ car[6] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h2>Cars list</h2>
+        <div id="counter">
+            <h2>Total Cars: {{ cars|length }}</h2>
+        </div><br>
+        <div id="display">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Owner's Name</th>
+                        <th>Phone Number</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Model Year</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for car in cars %}
+                    <tr>
+                        <td>{{ car[0] }}</td>
+                        <td>{{ car[1] }}</td>
+                        <td>{{ car[2] }}</td>
+                        <td>{{ car[3] }}</td>
+                        <td>{{ car[4] }}</td>
+                        <td>{{ car[5] }}</td>
+                        <td>{{ car[6] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
     </div>
-
-
-</div>
 </body>
 
 </html>

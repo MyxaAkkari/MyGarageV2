@@ -1,49 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
 #errorMessage {
     color: red;
 }
+
 body {
-    background-image: url('../assets/carGarageOne.jpeg');
+
+    /* background-image: url('../assets/carGarageOne.jpeg');
     background-size: cover;
-    background-repeat: no-repeat;
-    background-color: gray;
+    background-repeat: no-repeat; */
+    background: #25252b;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: rgb(228, 228, 228);
-}
-input{
-    background-color: #cdcdcd;
-}
-button {
-    color: black;
-    padding: 3px 15px; /* Adjust padding for a larger button */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px; /* Adjust font size */
-    margin: 10px;
+    color: #45f3ff;
 }
 
-button:hover {
-    background-color: #45a049; 
+input {
+
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+    border-radius: 30px;
+
+
 }
-button#myRemoveAllButton:hover {
-    background-color: #ff0000; 
+
+input::placeholder {
+    color: #999;
+
 }
+
+#edit_field {
+    width: 87%;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+    border-radius: 30px;
+
+}
+
+input[type="submit"] {
+    background: #45f3ff;
+    border: none;
+    font-weight: 500;
+    color: #111;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+input[type="submit"]:hover {
+    box-shadow: 0 0 10px #45f3ff, 0 0 60px #45f3ff;
+}
+
+#del_btn {
+    background: #ff0000;
+    border: none;
+    font-weight: 500;
+    color: #111;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#del_btn:hover {
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000;
+}
+
+#edit_btn {
+    background: #45a049;
+    border: none;
+    font-weight: 500;
+    color: #111;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#edit_btn:hover {
+    box-shadow: 0 0 10px #45a049, 0 0 60px #45a049;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+}
+
+
+
 #main-content {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     display: flex;
 }
-@media (max-width: 600px) {
-    body{
-        background-image: url('../assets/carGarageMobile.jpg');
-    }
-    input {
-        width: 100%;
-        box-sizing: border-box; 
-        margin: 5px 0; 
-    }
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav {
+    width: 100%;
+}
+
+a {
+    cursor: pointer;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 70px;
+}
+
+.menu li {
+    display: inline-block;
+    width: 90px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.menu>li:hover>a {
+    color: #45f3ff;
+}
+
+.menu>li:hover>a::before {
+    visibility: visible;
+    scale: 1 1;
+}
+
+
+.menu>li a {
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7px;
+    text-decoration: none;
+    position: relative;
+    height: 100%;
+}
+
+.menu>li>a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 3px;
+    left: 0px;
+    background-color: #45f3ff;
+    transition: all 0.2s ease-in-out;
+    scale: 0 0;
+    visibility: hidden;
+}
+
+.profile-link {
+    margin-right: auto;
+    padding: 7px 7px;
+    /* Pushes Profile link to the left */
+}
+
+.logout-link {
+    margin-left: auto;
+    /* Pushes Logout link to the right */
+}
+
+.rounded-profile {
+    border-radius: 50%; /* Apply border-radius to make the image round */
 }
